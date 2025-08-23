@@ -30,7 +30,7 @@ const Dashboard = () => {
               )}
               <div className="text-white">
                 <h1 className="text-3xl font-bold">
-                  Welcome, {user?.name || user?.given_name || 'User'}!
+                  Welcome, {user?.username || user?.given_name || 'User'}!
                 </h1>
                 <p className="text-blue-100 text-lg">
                   {user?.email}
@@ -53,7 +53,7 @@ const Dashboard = () => {
                       Full Name
                     </label>
                     <p className="text-gray-900 text-lg">
-                      {user?.name || 'N/A'}
+                      {user?.username || 'N/A'}
                     </p>
                   </div>
                   <div>

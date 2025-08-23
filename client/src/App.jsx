@@ -8,6 +8,8 @@ import LoginPage from './components/LoginPage';
 import Dashboard from './components/Dashboard';
 import './App.css';
 import Home from './Pages/Home';
+import AllEvents from './components/AllEvents';
+import EventSuccessPage from './components/EventSucessPage';
 
 function App() {
   return (
@@ -27,10 +29,25 @@ function App() {
           {/* Dashboard Route */}
           <Route path="/dashboard" element={
             <>
-              <Navbar />
+            
               <Dashboard />
             </>
           } />
+            <Route path="/Events" element={
+              <>
+               <Navbar/>
+              <AllEvents/>   
+              </>
+            }
+            />
+            <Route path="/eventname" element={
+              <>
+               
+              <EventSuccessPage/>  
+              </>
+            }
+            />
+
         </Routes>
       </Router>
     </AuthProvider>

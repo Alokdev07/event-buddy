@@ -34,10 +34,10 @@ export default function GoogleLoginButton() {
           // Extract user data from your backend response
           // Adjust these based on your actual API response structure
           const userData = res.data.data || res.data.user || res.data;
-          const token = res.data.token || res.data.data?.token || res.data.accessToken;
+      
 
           // Update auth context
-          login(userData, token);
+          login(userData);
           
           console.log('Login successful, navigating to home...'); // Debug log
           
