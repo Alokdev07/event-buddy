@@ -843,7 +843,7 @@ const CreateEventCard = () => {
       whileHover={{ y: -8, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className="group relative cursor-pointer h-[450px]"
-      onClick={() => alert('Create Event feature coming soon!')}
+      onClick={() => navigate('/Create')}
     >
       <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 border-2 border-dashed border-blue-300 dark:border-blue-600 hover:border-blue-400 dark:hover:border-blue-500 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden h-full flex flex-col items-center justify-center p-8">
         <motion.div
