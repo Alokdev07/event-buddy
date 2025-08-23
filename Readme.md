@@ -6,7 +6,17 @@
 
 # This is Landing page 
 ![Landing page](./client/landing.jpg)
-![Landing page](./client/login.jpg)
+![Login page](./client/login.jpg)
+![All event page](./client/allevent.jpg)
+![Loading page](./client/loadingpage.jpg)
+![eventSection page](./client/eventSection.jpg)
+![eventComponent page](./client/eventComponent.jpg)
+![about page](./client/about.jpg)
+![cultural page](./client/cultural.jpg)
+![qr page](./client/qrpage.jpg)
+![dashboard page](./client/dashboard.jpg)
+
+
 =======
 # for fetching_details_using session cookie - http://localhost:8000/api/v1/users/auth_getprofile![WhatsApp Image 2025-08-24 at 00 02 21_3e9f4094]
 main page
