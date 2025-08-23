@@ -19,8 +19,6 @@ import authRoutes from '../routes/user.route.js'
 
 app.use('/api/v1/users',authRoutes)
 
-app.listen(process.env.PORT,() => {
-    console.log(`app is listening on port ${process.env.PORT}`)
-})
+
 
 export default app
