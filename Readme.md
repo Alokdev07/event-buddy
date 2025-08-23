@@ -6,7 +6,9 @@
 
 # This is Landing page 
 ![Landing page](./client/landing.jpg)
+# This is the login page of our website
 ![Login page](./client/login.jpg)
+# 
 ![All event page](./client/allevent.jpg)
 ![Loading page](./client/loadingpage.jpg)
 ![eventSection page](./client/eventSection.jpg)
