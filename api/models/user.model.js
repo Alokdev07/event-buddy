@@ -20,6 +20,6 @@ const user_schema = mongoose.Schema({
   profile_pic : {
     type : String
   }
-}<{timestamps : true});
+},{timestamps : true});
 
 export const User = mongoose.model("User",user_schema)
