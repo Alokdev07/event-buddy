@@ -1,23 +1,23 @@
-// src/GoogleLoginButton.jsx
+// src/components/GoogleLoginButton.jsx
 import { useEffect, useRef } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {setUser} from '../store/Authslice'
+import { useAuth } from "../Context/AuthContext";
+import axios from "axios";
 
 export default function GoogleLoginButton() {
   const divRef = useRef(null);
-  const dispatch = useDispatch();
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    /* global google */
     if (!window.google || !divRef.current) return;
 
     window.google.accounts.id.initialize({
       client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
       callback: async (response) => {
         try {
+          console.log('Google login initiated...'); // Debug log
+          
           const res = await axios.post(
             "http://localhost:8000/api/v1/users/auth_login",
             { credential: response.credential },
@@ -29,11 +29,21 @@ export default function GoogleLoginButton() {
             }
           );
 
-          console.log("Logged in user:", res.data.data);
-          if (res.data.data) {
-            dispatch(setUser(res.data.data)); 
-            navigate("/");
-          }
+          console.log("Backend response:", res.data); // Debug log
+          
+          // Extract user data from your backend response
+          // Adjust these based on your actual API response structure
+          const userData = res.data.data || res.data.user || res.data;
+          const token = res.data.token || res.data.data?.token || res.data.accessToken;
+
+          // Update auth context
+          login(userData, token);
+          
+          console.log('Login successful, navigating to home...'); // Debug log
+          
+          // Navigate to home page
+          navigate('/');
+          
         } catch (err) {
           console.error("Login failed:", err.response?.data || err.message);
         }
@@ -42,13 +52,18 @@ export default function GoogleLoginButton() {
     });
 
     window.google.accounts.id.renderButton(divRef.current, {
-      theme: "none",
-      size: "medium",
+      theme: "outline",
+      size: "large", 
       type: "standard",
-      text: "sign_in",
+      text: "signin_with",
       shape: "rectangular",
+      width: "100%",
     });
-  }, []);
+  }, [login, navigate]);
 
-  return <div ref={divRef} />;
+  return (
+    <div className="w-full">
+      <div ref={divRef} className="w-full" />
+    </div>
+  );
 }
